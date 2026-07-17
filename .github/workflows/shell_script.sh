@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Executing the cowsay script"
 sudo apt-get install cowsay -y
