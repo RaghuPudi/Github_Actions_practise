@@ -1,0 +1,16 @@
+name: generate the ASCII artwork script
+on: push
+jobs:
+    script:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v7
+            
+            - name: list the repo
+              run: ls -ltra
+
+            - name: Execute the script
+              run: |
+                   chmod +x shell_script.sh
+                   ./shell_script.sh
