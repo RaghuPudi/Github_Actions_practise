@@ -1,0 +1,9 @@
+name: Execute the shell script in Github Actions
+on: push
+jobs:
+    shell_script_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Execute the script
+              run: ./ascii-shell-script.sh
+              
