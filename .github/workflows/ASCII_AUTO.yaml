@@ -12,5 +12,5 @@ jobs:
 
             - name: Execute the script
               run: |
-                   chmod +x shell_script.sh
-                   ./shell_script.sh
+                    chmod +x workflows/shell_script.sh
+                   .workflows/shell_script.sh
