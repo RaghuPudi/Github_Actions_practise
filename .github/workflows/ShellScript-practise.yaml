@@ -1,16 +1,12 @@
-name: Execute the shell script in Github Actions
+name: Execute the shell script
 on: push
-jobs:
-    shell_script_job:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v7
+shell_script:
+    runs-on: ubuntu-latest
+    steps:
+        - name: checkout
+          uses: actions/checkout@v7
 
-
-            - name: Execute the script
-              run: |
-              
-                 chmod +x ascii-shell-script.sh 
-                ./ascii-shell-script.sh
- 
+        - name: execute the script
+          run: |
+               chmod +x ascii-shell-script.sh
+               ./ascii-shell-script.sh
