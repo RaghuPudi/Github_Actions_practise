@@ -7,6 +7,9 @@ jobs:
             - name: checkout
               uses: actions/checkout@v7
 
+            - name: list the rep
+              run: ls -ltra
+
             - name: execute the script
               run: |
                    chmod +x ascii-shell-script.sh
