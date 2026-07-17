@@ -6,8 +6,11 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v7
+
+
             - name: Execute the script
               run: |
+              
                  chmod +x ascii-shell-script.sh 
                 ./ascii-shell-script.sh
  
