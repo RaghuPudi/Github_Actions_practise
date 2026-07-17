@@ -1,0 +1,22 @@
+name: Generate ASCII Workflow 
+on : push
+jobs:
+    ascii_job:
+        runs_on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v7
+
+            - name: Install the cowsay Library
+              run: |
+                   echo "Install the cowsay library"
+                   sudo apt-get install cowsay -y 
+            
+            - name: Generate the Artwork
+              run: cowsay -f dragon "RUN for cover .....I am the dragon....." >> dragon.txt
+
+            - name: Check if the file exists
+              run: cat dragon.txt
+
+            - name: Check the repo
+              run: ls -lrta
