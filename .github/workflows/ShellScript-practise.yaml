@@ -4,7 +4,8 @@ jobs:
     shell_script_job:
         runs-on: ubuntu-latest
         steps:
-            - name: Execute the script
-              run: |
+             - name: Execute the script
+               run: |
                  chmod +x ascii-shell-script.sh 
                 ./ascii-shell-script.sh
+ 
