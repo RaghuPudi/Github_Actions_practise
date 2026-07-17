@@ -5,7 +5,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v7
+              uses: actions/checkout@v4
             
             - name: list the repo
               run: ls -ltra
