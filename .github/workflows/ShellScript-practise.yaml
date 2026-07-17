@@ -1,12 +1,13 @@
 name: Execute the shell script
 on: push
-shell_script:
-    runs-on: ubuntu-latest
-    steps:
-        - name: checkout
-          uses: actions/checkout@v7
+jobs:
+    shell_script:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v7
 
-        - name: execute the script
-          run: |
-               chmod +x ascii-shell-script.sh
-               ./ascii-shell-script.sh
+            - name: execute the script
+              run: |
+                   chmod +x ascii-shell-script.sh
+                   ./ascii-shell-script.sh
