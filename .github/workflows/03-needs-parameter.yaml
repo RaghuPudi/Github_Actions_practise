@@ -1,0 +1,24 @@
+name: Testing the needs parameter
+on:
+    workflow_dispatch:
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+          - run: |
+              echo "Hello World"
+              echo "I am Learning GitHub Actions"
+              echo "Wish me good luck" 
+    job2:
+        runs-on: ubuntu-latest
+        steps:
+          - run: print("Hello I am learning GHA")
+            shell: python
+    
+    job3:
+        runs-on: ubuntu-latest
+        needs:
+            - job1
+            - job2
+        steps:
+          - run: echo "This job starts after job1 and job2"
