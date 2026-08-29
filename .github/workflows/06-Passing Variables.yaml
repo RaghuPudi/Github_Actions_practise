@@ -5,7 +5,7 @@ jobs:
     producer:
         runs-on: ubuntu-latest
         outputs:
-            raghu = ${{ steps.generate-raghu.outputs.raghu }}
+            raghu: ${{ steps.generate-raghu.outputs.raghu }}
         steps:
           - name: Generate and export raghu
             id: generate-raghu
