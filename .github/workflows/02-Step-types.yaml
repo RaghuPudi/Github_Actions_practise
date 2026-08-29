@@ -1,0 +1,23 @@
+name: Different Hello World
+
+on:
+    workflow_dispatch:
+
+jobs:
+    say-inline-Hello-bash:
+        runs-on: ubuntu-latest
+        steps:
+          - run: echo "Hello World"
+    
+    Python-inline-hello:
+        runs-on: ubuntu-latest
+        steps:
+          - run: print("Hello World!")
+            shell: python
+    
+    Hello-world-Javascript:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: jairogomz/hello-world-javascript-action-by-jairo@v1.0.1
+            with:
+                who-to-greet: 'Mona the Octocat'
