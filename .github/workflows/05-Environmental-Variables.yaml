@@ -1,0 +1,34 @@
+name: Visualising the ENV Variables and their scopes
+on:
+    workflow_dispatch
+env: 
+    WORKFLOW_VAR: I_AM_WORKFLOW_SCOPED
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        env:
+            JOB_VAR: I_AM_JOB_SCOPED
+        steps:
+          - name: INSPECT SCOPES of variables for JOB 1 and STEP1
+            env:
+                STEP_VAR: I_AM_STEP_SCOPED
+            run: |
+              echo "WORKFLOW_VAR: $WORKFLOW_VAR"
+              echo "JOB_VAR     : $JOB_VAR"
+              echo "STEP_VAR    : $STEP_VAR"
+          - name: INSPECT SCOPES of JOB1 and STEP2
+            run: |
+              echo "WORKFLOW_VAR: $WORKFLOW_VAR"
+              echo "JOB_VAR     : $JOB_VAR"
+              echo "STEP_VAR  : ${STEP_VAR:<UNSET>}"
+
+
+    job2:
+        steps:
+            - name: Inspect Scopes on Job2 and Step 2
+              run: |
+              echo "WORKFLOW_VAR   : $WORKFLOW_VAR"
+              echo "JOB_VAR        : ${FOO:<UNSET>}"
+              echo "STEP_VAR       : ${STEP_VAR:<UNSET>}"
+              
