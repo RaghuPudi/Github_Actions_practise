@@ -1,6 +1,6 @@
 name: Hello World Workflow
 on:
-    workflow-dispatch:
+    workflow_dispatch:
 jobs:
     sample-inline-hello-bash:
         runs-on: ubuntu-24.04
