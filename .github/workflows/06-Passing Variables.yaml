@@ -12,13 +12,13 @@ jobs:
             run: |
               raghu = devops-guy
 
-              echo "$raghu (Sent to output) >> ${GITHUB_OUTPUT}"
-              echo "$raghu (sent to env)    >> ${GITHUB_ENV}"
+              echo "raghu = $raghu" >> "$GITHUB_OUTPUT"
+              echo "RAJESH = $raghu" >> "$GITHUB_ENV"
 
           - name: Inspect the variable of raghu 
             run: |
-              echo "$raghu with the ENV variable is" : $raghu
-              echo "$raghu with the outputs is": ${{ steps.generate-raghu.outputs.raghu }}
+              echo "RAJESH with the ENV variable is" : $raghu
+              echo "raghu with the outputs is": ${{ steps.generate-raghu.outputs.raghu }}
     
     consumer:
         runs-on: ubuntu-latest
@@ -26,4 +26,5 @@ jobs:
         steps:
           - name: Reference from producer
             run: |
-              echo "THe raghu value from producer is:" ${{ needs.producer.outputs.raghu}}
+              echo "THe raghu value from producer is: ${{ needs.producer.outputs.raghu}}"
+              echo "RAJESH in consumer: ${RAJESH:-<UNSET>}"
