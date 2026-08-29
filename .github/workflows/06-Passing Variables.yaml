@@ -1,4 +1,4 @@
-name: Passing the varibales inter and intra jobs-V2
+name: Passing the varibales inter and intra jobs-V3
 on:
     workflow_dispatch:
 jobs:
