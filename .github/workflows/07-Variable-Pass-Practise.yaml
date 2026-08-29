@@ -1,6 +1,6 @@
 name: Practise to Pass Variables
 on:
-    psuh
+    push
 jobs:
     producer:
         runs-on: ubuntu-latest
