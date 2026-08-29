@@ -26,5 +26,5 @@ jobs:
         steps:
           - name: Reference from producer
             run: |
-              echo "THe raghu value from producer is: ${{ needs.producer.outputs.raghu}}"
+              echo "THe raghu value from producer is: ${{ needs.producer.outputs.raghu }}"
               echo "RAJESH in consumer: ${RAJESH:-<UNSET>}"
