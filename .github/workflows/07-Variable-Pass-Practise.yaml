@@ -1,0 +1,17 @@
+name: Practise to Pass Variables
+on:
+    psuh
+jobs:
+    producer:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Generate and export foo
+            id: generate-foo
+            run: |
+              foo = bar
+              echo "foo = ${foo}" >> "$GITHUB_OUTPUT"
+              echo "FOO = ${foo}" >> "GITHUB_ENV"
+          - name: Inspect the variables
+            run: |
+              echo foo = ${{ steps.outputs.generate-foo.output}}
+              echo FOO = $FOO
