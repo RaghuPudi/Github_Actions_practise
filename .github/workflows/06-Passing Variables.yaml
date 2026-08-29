@@ -17,7 +17,7 @@ jobs:
 
           - name: Inspect the variable of raghu 
             run: |
-              echo "RAJESH with the ENV variable is" : $raghu
+              echo "RAJESH with the ENV variable is" : $RAJESH
               echo "raghu with the outputs is": ${{ steps.generate-raghu.outputs.raghu }}
     
     consumer:
