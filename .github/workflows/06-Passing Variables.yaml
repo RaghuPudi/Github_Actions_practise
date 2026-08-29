@@ -1,31 +1,29 @@
-name: Passing Variables between Jobs
-on: 
-    workflow_dispatch
+name: Passing the varibales inter and intra jobs
+on:
+    workflow_dispatch:
 jobs:
     producer:
         runs-on: ubuntu-latest
         outputs:
-            foo: ${{ steps.generate-foo.outputs.foo }}
+            raghu = ${{ steps.generate-raghu.outputs.raghu }}
         steps:
-            - name: Generate and export foo
-              id: generate-foo
-              run: |
-                foo=bar
-                # 1) Step output for job output
-                echo "foo=${foo}" >> "$GITHUB_OUTPUT"
+          - name: Generate and export raghu
+            id: generate-raghu
+            run: |
+              raghu = devops-guy
 
-                # 2) Job Scoped ENV variable 
-                echo "FOO=${foo}" >> "$GITHUB_ENV"
+              echo "$raghu (Sent to output) >> ${GITHUB_OUTPUT}"
+              echo "$raghu (sent to env)    >> ${GITHUB_ENV}"
 
-            - name: Inspect the values inside the producer
-              run: |
-                echo "FOO (SET via the $GITHUB_ENV):   $FOO"
-                echo "foo(step output): ${{ steps.generate-foo.outputs.foo }}"
+          - name: Inspect the variable of raghu 
+            run: |
+              echo "$raghu with the ENV variable is" : $raghu
+              echo "$raghu with the outputs is": ${{ steps.generate-raghu.outputs.raghu }}
+    
     consumer:
         runs-on: ubuntu-latest
         needs: producer
         steps:
-          - name: Inspect Values inside the consumer(FOO is unset)
+          - name: Reference from producer
             run: |
-              echo "Value from producer:  ${{ needs.producer.outputs.foo }}"
-              echo "FOO in consumer: ${FOO:-<UNSET>}"
+              echo "THe raghu value from producer is:" ${{ needs.producer.outputs.raghu}}
