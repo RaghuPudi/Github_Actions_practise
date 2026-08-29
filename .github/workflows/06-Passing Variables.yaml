@@ -1,6 +1,6 @@
-name: Passing the varibales inter and intra jobs-V3
+name: Passing the varibales inter and intra jobs-V5
 on:
-    workflow_dispatch:
+    push
 jobs:
     producer:
         runs-on: ubuntu-latest
