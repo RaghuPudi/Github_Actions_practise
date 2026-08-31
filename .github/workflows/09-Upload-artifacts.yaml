@@ -14,9 +14,9 @@ jobs:
              echo "Generated on $(date)" >> artifact.txt
          - name: Upload Artifact
            uses: actions/upload-artifact@v4
-             with: 
-                name: example-artifact
-                path: artifact.txt
+           with: 
+             name: example-artifact
+             path: artifact.txt
   artifact_consumer:
        name: Consume the artifact
        runs-on: ubuntu-latest
@@ -25,6 +25,6 @@ jobs:
          - name: Download Artifact
            uses: actions/download-artifact@v4
            with:
-            name: example-artifact
+             name: example-artifact
          - name: Cat artifact file
            run: cat artifact.txt
