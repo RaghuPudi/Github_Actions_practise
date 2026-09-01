@@ -1,0 +1,24 @@
+name: NPM Caching example
+on:
+  workflow_dispatch:
+
+jobs:
+  node-cache:
+    name: Node Dependency cache
+    runs-on: ubuntu-latest
+    defaults:
+      run: 
+        working-directory: /path/to/project
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: NPM
+          cache-dependency-path: /path/to/project/package-lock.json
+      - name: Install dependencies
+        run: npm ci --prefer-online --no-audit
+      
+      - name: List first few modules
+        run: ls -R node_modules | head 

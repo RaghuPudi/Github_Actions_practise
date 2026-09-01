@@ -1,0 +1,29 @@
+name: Permissions Practise 
+on:
+  workflow_dispatch:
+
+jobs:
+  read-only-pr:
+  runs-on: ubuntu-latest
+  permissions:
+    pull-requests: read
+  continue-on-error: true
+  steps:
+    - name: Checkout the code 
+      uses: actions/checkout@v4
+    - name: Install GitHub CLI 
+      run: sudo apt-get update && sudo apt-get install -y gh 
+    - name: List the 5 PR's
+      run: gh pr list  --limit 5
+      env:  
+        GITHUB_TOKEN: ${{ github.token }}
+    - name: Attempt to add a label 
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: |
+        gh pr edit 1 --add-label "documentation"
+    - name: Confirm the failure 
+      if: failure()
+      run: echo "Write Operation is blocked - Token is read-only"
+
+  
