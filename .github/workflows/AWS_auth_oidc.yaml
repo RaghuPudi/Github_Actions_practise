@@ -1,0 +1,14 @@
+name: AWS Authentication
+on:
+    workflow_dispatch:
+jobs:
+    aws-oidc-auth:
+    runs-on: ubuntu-latest
+    permissions:
+        id-token: write
+    steps:
+        - name: AWS Authentication
+          uses: aws-actions/configure-aws-credentials@v6.3.0
+          with: 
+            region: us-east-1
+            role-to-assume: arn:aws:iam::587263142585:role/github-action-role
