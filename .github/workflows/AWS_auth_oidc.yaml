@@ -12,4 +12,4 @@ jobs:
                with: 
                 audience: sts.amazonaws.com.cn
                 aws-region: us-east-1
-                role-to-assume: arn:aws:iam::587263142585:role/github-action-role
+                role-to-assume: arn:aws:iam::587263142585:role/GHA-role
