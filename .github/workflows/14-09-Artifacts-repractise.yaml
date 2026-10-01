@@ -2,10 +2,9 @@ name: Practise with the artifacts
 on:
   workflow_dispatch:
 
-
 jobs:
   artifact-producer:
-      name: Artifact Producer
+      name: artifact-producer
       runs-on: ubuntu-24.04
       steps:
         - name: Create the artifact file
@@ -18,7 +17,7 @@ jobs:
             name: practise-artifact
             path: artifact.txt
 
-  artifact_consumer:
+  artifact-consumer:
       name: Artifact Consumer
       runs-on: ubuntu-24.04
       needs: artifact-producer
