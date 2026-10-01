@@ -10,5 +10,6 @@ jobs:
              - name: AWS Authentication
                uses: aws-actions/configure-aws-credentials@v6.3.0
                with: 
-                region: us-east-1
+                audience: sts.amazonaws.com.cn
+                aws-region: us-east-1
                 role-to-assume: arn:aws:iam::587263142585:role/github-action-role
