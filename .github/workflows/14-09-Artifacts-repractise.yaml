@@ -1,22 +1,25 @@
 name: Practise with the artifacts
 on:
   workflow_dispatch:
+
+
 jobs:
   artifact-producer:
-    - name: Artifact Producer
+      name: Artifact Producer
       runs-on: ubuntu-latest
       steps:
-        run: |
-         echo "This is an example artifact!" > artifact.txt
-         echo "Generated on $(date)" > artifact.txt
-    - name: Upload the artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: practise-artifact
-        path: artifact.txt
+        - name: Create the artifact file
+          run: |
+            echo "This is an example artifact!" > artifact.txt
+            echo "Generated on $(date)" > artifact.txt
+        - name: Upload the artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: practise-artifact
+            path: artifact.txt
 
   artifact_consumer:
-    - name: Artifact Consumer
+      name: Artifact Consumer
       runs-on: ubuntu-latest
       needs: artifact-producer
       steps:
@@ -25,6 +28,6 @@ jobs:
           with:
             name: practise-artifact
         
-    - name: Cat the artifact
-      run: cat artifact.txt
+        - name: Cat the artifact
+          run: cat artifact.txt
 
