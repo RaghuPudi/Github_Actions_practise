@@ -6,7 +6,7 @@ on:
 jobs:
   artifact-producer:
       name: Artifact Producer
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-24.04
       steps:
         - name: Create the artifact file
           run: |
@@ -20,7 +20,7 @@ jobs:
 
   artifact_consumer:
       name: Artifact Consumer
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-24.04
       needs: artifact-producer
       steps:
         - name: Download-Artifact
