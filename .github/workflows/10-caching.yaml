@@ -27,6 +27,5 @@ jobs:
 
       - name: Verify Cache status
         run: |
-          echo "cache-hit? -> ${{ steps.demo-cache.outputs.cache-hit }}
+          echo "cache-hit? -> ${{ steps.demo-cache.outputs.cache-hit }}"
           cat demo-cache/timestamp.txt
-          
