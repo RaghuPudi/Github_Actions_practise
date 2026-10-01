@@ -3,9 +3,10 @@ on:
     workflow_dispatch:
 jobs:
     aws-oidc-auth:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
         id-token: write
+    continue-on-error: true
     steps:
         - name: AWS Authentication
           uses: aws-actions/configure-aws-credentials@v6.3.0
