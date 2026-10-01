@@ -20,9 +20,10 @@ jobs:
       runs-on: ubuntu-latest
       needs: artifact-producer
       steps:
-        uses: actions/downlaod-artifact@v4
-        with:
-          name: practise-artifact
+        - name: Download-Artifact
+          uses: actions/downlaod-artifact@v4
+          with:
+            name: practise-artifact
         
     - name: Cat the artifact
       run: cat artifact.txt
