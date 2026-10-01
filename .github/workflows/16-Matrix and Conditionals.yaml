@@ -20,12 +20,12 @@ jobs:
     steps:
         - name: Echo Number and Letter
           run: |
-            echo "Number: ${{ matrix.number}}"
-            echo "Letter: ${{ matrix.letter}}"
+            echo "Number: ${{ matrix.number }}"
+            echo "Letter: ${{ matrix.letter }}"
 
         - name: Run everywhere execept 2 and c
           if: ${{ ! (matrix.number ==2 && matrix.letter == 'c') }}
-          run: echo "This step runs for ${{matrix.number}}${{matrix.letter}}"
+          run: echo "This step runs for ${{ matrix.number }}${{ matrix.letter }}"
     sleep-job:
         runs-on: ubuntu-24.04
         steps:
