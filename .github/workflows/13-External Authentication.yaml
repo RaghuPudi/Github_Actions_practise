@@ -1,0 +1,25 @@
+name: External System Authentication 
+on:
+  workflow_dispatch:
+jobs:
+  aws-auth-static:
+  runs-on: ubuntu-latest 
+  steps:
+    - name: To authenticate using access and secret key
+      uses: aws-actions/configure-aws-credentials@v6.2.4
+      with:
+        aws-region: us-east-1
+        aws-access-key-id: {{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-key-id: {{ sevrets.AWS_SECRET_KEY_ID }}
+
+  aws-auth-oidc:
+  runs-on: ubuntu-latest
+  permissions:
+    id-token: Write
+  steps:
+    - name: To authenticate via the oidc
+      uses: aws-actions/configure-aws-credentials@v6.2.4
+      with:
+        aws-region: us-east-1
+        role-to-assume: 
+      
