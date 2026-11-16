@@ -1,0 +1,25 @@
+name: Github Actions Tokens and Permisisons
+on:
+  workflow_dispatch:
+jobs:
+  read-only-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install the GH CLI 
+        run: sudo apt get update -qq && sudo apt install gh -y
+      - name: List the 5 PR's
+        run: gh pr list --limit 5
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Edit the label of the 1st PR
+        run: gh pr 1 edit --add-label "documentation"
+        env: 
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Confirm failure
+        if: failure()
+        run: echo "Write operation is blocked- token is read-only"
